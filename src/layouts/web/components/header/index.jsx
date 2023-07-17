@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {AiOutlineMenu} from 'react-icons/ai'
 import logoDark from '@/assets/images/petbook-dark-logo.png'
+import Auth from './auth'
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false)
@@ -28,9 +29,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div>
-        <button>Bize Ulaşın</button>
-      </div>
+        <Auth />
     </nav>
   )
 }
