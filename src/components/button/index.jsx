@@ -7,8 +7,10 @@ const Button = ({children, as, variant, size, ...props}) => {
     as,
     {
       ...props,
-      className: classNames('h-10 rounded flex items-center justify-center', {
-        'bg-primary-2 text-neutral-2 font-medium': variant === 'primary',
+      className: classNames('h-10 rounded-full flex items-center justify-center', {
+        'bg-primary-2 text-neutral-0 font-medium hover:bg-primary-1 transition-colors duration-300':
+          variant === 'primary',
+        'bg-neutral-0 border-2 border-primary-2 flex items-center gap-2': variant === 'secondary',
         'px-5': size === 'normal',
       }),
     },
@@ -17,10 +19,10 @@ const Button = ({children, as, variant, size, ...props}) => {
 }
 
 Button.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   variant: PropTypes.oneOf(['primary', 'secondary']),
   size: PropTypes.oneOf(['normal', 'small']),
-  as: PropTypes.string,
+  as: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   props: PropTypes.any,
 }
 

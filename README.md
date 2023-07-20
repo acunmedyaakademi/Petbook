@@ -6,3 +6,13 @@
 ## Authors
 
 - [@Mert OKAN](https://www.github.com/Elitesmert)
+
+## Packages
+
+- [Tailwind css](https://tailwindcss.com/)
+- [React Icons](https://react-icons.github.io/)
+- [React Router Dom](https://reactrouter.com/en/main)
+- [Redux](https://redux.js.org/)
+- [classnames](https://www.npmjs.com/package/classnames)
+- [prop-types](https://www.npmjs.com/package/prop-types)
+- [circle-flags](https://github.com/HatScripts/circle-flags/tree/gh-pages/flags)
