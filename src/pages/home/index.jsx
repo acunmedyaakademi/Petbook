@@ -2,11 +2,17 @@ import React from 'react'
 import headerImage from '@/assets/images/header-photo.jpg'
 import Button from '@/components/button'
 import {MdOutlineKeyboardArrowRight} from 'react-icons/md'
+import Card from '@/components/card'
 
 const Home = () => {
-  fetch('https://dummyjson.com/products')
-    .then((res) => res.json())
-    .then((json) => console.log(json))
+  const [products, setProducts] = React.useState([])
+
+  React.useEffect(() => {
+    fetch('https://dummyjson.com/products')
+      .then((res) => res.json())
+      .then((json) => setProducts(json.products))
+  }, [])
+
   return (
     <>
       <div className='h-[695px] w-full relative -z-10'>
@@ -33,7 +39,13 @@ const Home = () => {
               </Button>
             </div>
           </div>
-          <div></div>
+          <div className='grid gap-4 grid-cols-auto-fit-250'>
+            {products.map((product, key) => (
+              <Card key={key} data={product}>
+                {product.title}
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </>

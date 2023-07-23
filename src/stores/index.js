@@ -4,7 +4,7 @@ import {configureStore} from '@reduxjs/toolkit'
 import app from './app'
 
 const store = configureStore({
-  reducer: {},
+  reducer: {app},
 })
 
 export default store

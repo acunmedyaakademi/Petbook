@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -31,6 +32,9 @@ export default {
           orange: 'rgb(255, 145, 44)',
           blue: 'rgb(0, 167, 231)',
         },
+      },
+      gridTemplateColumns: {
+        'auto-fit-250': 'repeat(auto-fit, minmax(250px, 1fr))',
       },
     },
   },
