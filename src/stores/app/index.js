@@ -15,7 +15,7 @@ const app = createSlice({
     _setTheme(state, action) {
       state.theme = action.payload
 
-      localStorage.setItem('theme', state.payload)
+      localStorage.setItem('theme', action.payload)
     },
   },
 })

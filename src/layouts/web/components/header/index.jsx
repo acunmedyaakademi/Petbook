@@ -1,12 +1,10 @@
 import {useState} from 'react'
-import {IoMdArrowDropdown} from 'react-icons/io'
 import logoDark from '@/assets/images/petbook-light-logo-write-1.png'
 import Auth from './auth'
 import {Link, NavLink} from 'react-router-dom'
-import {CircleFlag} from 'react-circle-flags'
 import {NAVBAR_MENU} from '@/utils/consts/navbar'
 import classNames from 'classnames'
-import ThemeButton from './components/ThemeButton'
+import Appearance from './components/appearance'
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false)
@@ -14,7 +12,7 @@ const Header = () => {
     setNavbar(!navbar)
   }
   return (
-    <nav className='flex fixed justify-around h-16 py-2 items-center top-0 w-full'>
+    <nav className='flex fixed justify-between h-16 py-2 items-center top-0 w-full px-36 '>
       <Link to='/' className='relative w-52'>
         <img src={logoDark} alt='' className='w-full h-full object-contain' />
       </Link>
@@ -39,12 +37,7 @@ const Header = () => {
         </ul>
       </div>
       <div className='flex gap-8 items-center select-none'>
-        <ThemeButton />
-        <div className='items-center flex gap-2'>
-          <CircleFlag countryCode='tr' className='w-6' />
-          <p className='text-neutral-0'>TRY</p>
-          <IoMdArrowDropdown className='text-3xl text-neutral-0' />
-        </div>{' '}
+        <Appearance />
         <Auth />
       </div>
     </nav>
