@@ -1,17 +1,16 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import headerImage from '@/assets/images/header-photo.jpg'
 import Button from '@/components/button'
 import {MdOutlineKeyboardArrowRight} from 'react-icons/md'
 import Card from '@/components/card'
+import {animals} from '@/fake-aapi/animals'
 
 const Home = () => {
-  const [products, setProducts] = React.useState([])
+  const [animal, setAnimal] = useState([])
 
-  React.useEffect(() => {
-    fetch('https://dummyjson.com/products')
-      .then((res) => res.json())
-      .then((json) => setProducts(json.products))
-  }, [])
+  useEffect(() => {
+    setAnimal(animals)
+  }, [animals])
 
   return (
     <>
@@ -25,27 +24,25 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div>
-        <div className='container mx-auto px-32 py-16'>
-          <div className='flex justify-between'>
-            <div className='flex gap-2 flex-col'>
-              <p>What's New?</p>
-              <h2 className='text-2xl'>Latest News</h2>
-            </div>
-            <div>
-              <Button variant='secondary'>
-                <span>View More </span>
-                <MdOutlineKeyboardArrowRight className='text-xl' />
-              </Button>
-            </div>
+      <div className='container mx-auto px-32 py-16'>
+        <div className='flex justify-between items-center border-b-2 pb-3 mb-3 border-zinc-200/70'>
+          <div className='flex gap-2 flex-col'>
+            <p>What's New?</p>
+            <h2 className='text-2xl'>Latest News</h2>
           </div>
-          <div className='grid gap-4 grid-cols-auto-fit-250'>
-            {products.map((product, key) => (
-              <Card key={key} data={product}>
-                {product.title}
-              </Card>
-            ))}
+          <div>
+            <Button variant='secondary'>
+              <span>View More </span>
+              <MdOutlineKeyboardArrowRight className='text-xl' />
+            </Button>
           </div>
+        </div>
+        <div className='grid gap-4 grid-cols-auto-fit-250'>
+          {animal.map((animal, key) => (
+            <Card key={key} data={animal}>
+              {animal.title}
+            </Card>
+          ))}
         </div>
       </div>
     </>
