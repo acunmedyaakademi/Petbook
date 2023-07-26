@@ -3,11 +3,11 @@ import React from 'react'
 
 const Auth = () => {
   return (
-    <div>
-      <Button as="button">
+    <>
+      <Button as='button' variant='navv'>
         Giriş Yap
       </Button>
-    </div>
+    </>
   )
 }
 

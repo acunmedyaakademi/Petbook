@@ -34,7 +34,7 @@ export default {
         },
       },
       gridTemplateColumns: {
-        'auto-fit-250': 'repeat(auto-fit, minmax(250px, 1fr))',
+        'auto-fit-250': 'repeat(auto-fit, minmax(288px, 1fr))',
       },
     },
   },

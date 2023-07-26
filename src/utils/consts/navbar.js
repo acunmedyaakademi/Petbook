@@ -8,11 +8,11 @@ export const NAVBAR_MENU = [
     title: 'Hakkımızda',
   },
   {
-    path: '/iletisim',
+    path: '/empty',
     title: 'İletişim',
   },
   {
-    path: '/blog',
+    path: '/empty',
     title: 'Blog',
   },
 ]

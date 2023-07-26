@@ -24,8 +24,8 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className='container mx-auto px-32 py-16'>
-        <div className='flex justify-between items-center border-b-2 pb-3 mb-3 border-zinc-200/70'>
+      <div className='container mx-auto sm:px-32 px-16 py-16'>
+        <div className='flex justify-between items-center border-b-2 pb-3 mb-3 border-zinc-200/70 '>
           <div className='flex gap-2 flex-col'>
             <p>What's New?</p>
             <h2 className='text-2xl'>Latest News</h2>
@@ -37,7 +37,7 @@ const Home = () => {
             </Button>
           </div>
         </div>
-        <div className='grid gap-4 grid-cols-auto-fit-250'>
+        <div className='grid gap-4 grid-cols-auto-fit-250 items-center place-content-center justify-items-center'>
           {animal.map((animal, key) => (
             <Card key={key} data={animal}>
               {animal.title}

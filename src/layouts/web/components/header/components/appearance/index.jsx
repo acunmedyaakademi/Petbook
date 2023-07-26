@@ -56,12 +56,12 @@ const Appearance = () => {
       <Menu as='nav' className='relative w-max'>
         <Menu.Button className='flex items-center justify-center text-neutral-0 gap-2'>
           <CircleFlag countryCode={i18n.language} width='20' className='justify-self-end' />
-          <span>{getLanguageName(i18n.language)}</span>
-          <IoMdArrowDropdown size={25} />
+          <span className='hidden lg:block'>{getLanguageName(i18n.language)}</span>
+          <IoMdArrowDropdown size={25} className='hidden lg:block' />
         </Menu.Button>
         <Menu.Items
           as='div'
-          className='absolute left-0 top-6 rounded-md overflow-hidden bg-primary-2 flex-1'
+          className='absolute right-0 top-6 rounded-md overflow-hidden bg-primary-2 flex-1'
         >
           {languages.map(({key, value}, index) => (
             <Menu.Item key={index}>
@@ -81,11 +81,7 @@ const Appearance = () => {
                 >
                   <span className='w-max'>
                     {' '}
-                    <CircleFlag
-                      countryCode={key}
-                      width='20'
-                      className='justify-self-end'
-                    />
+                    <CircleFlag countryCode={key} width='20' className='justify-self-end' />
                   </span>
                   {value}
                 </button>
