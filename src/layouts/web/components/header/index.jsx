@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import logoDark from '@/assets/images/petbook-light-logo-write-1.png'
 import Auth from './auth'
 import {Link, NavLink} from 'react-router-dom'
@@ -12,28 +12,22 @@ const Header = () => {
   const [show, setShow] = useState(false)
   const [menuScreen, setMenuScreen] = useState(false)
 
-  const handleShow = () => {
-    setShow(!show)
-  }
-  console.log(window.innerWidth)
+  const handleShow = () => setShow(!show)
 
-  const handleMenuScreen = () => {
-    if (window.innerWidth > 640) {
-      setMenuScreen(true)
-    } else {
-      setMenuScreen(false)
-    }
-  }
+  const changeNavbarColor = () => setColorchange(window.scrollY >= 550)
 
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 550) {
-      setColorchange(true)
-    } else {
-      setColorchange(false)
+  const handleMenuScreen = () => setMenuScreen(window.innerWidth > 640)
+
+  useEffect(() => {
+    handleMenuScreen()
+    window.addEventListener('resize', handleMenuScreen)
+    window.addEventListener('scroll', changeNavbarColor)
+
+    return () => {
+      window.removeEventListener('resize', handleMenuScreen)
+      window.removeEventListener('scroll', changeNavbarColor)
     }
-  }
-  window.addEventListener('resize', handleMenuScreen)
-  window.addEventListener('scroll', changeNavbarColor)
+  }, [])
 
   return (
     <nav
