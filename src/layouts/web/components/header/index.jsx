@@ -40,8 +40,8 @@ const Header = () => {
       className={classNames(
         'flex fixed top-0 w-full left-0 justify-between h-16 py-2 items-center px-8 transition-all duration-300 lg:px-36 ',
         {
-          'h-12 bg-neutral-8/80': colorChange && !show,
-          'h-12 bg-neutral-8/90': show,
+          'h-12 bg-neutral-8 bg-opacity-80': colorChange && !show,
+          'h-12 bg-neutral-8 bg-opacity-90': show,
           'bg-transparent': !colorChange,
         }
       )}
@@ -51,8 +51,8 @@ const Header = () => {
       </Link>
       <div
         className={classNames('block transition-all duration-300', {
-          'absolute bg-neutral-8/90 top-16 left-0 w-full h-[calc(100vh-64px)]': show,
-          'absolute bg-neutral-8/90 opacity-0 sm:opacity-100 top-16 -left-[639px] w-full h-[calc(100vh-64px)]':
+          'absolute bg-neutral-8 bg-opacity-90 top-16 left-0 w-full h-[calc(100vh-64px)]': show,
+          'absolute bg-neutral-8 bg-opacity-90 opacity-0 sm:opacity-100 top-16 -left-[639px] w-full h-[calc(100vh-64px)]':
             !show && !menuScreen,
         })}
       >
