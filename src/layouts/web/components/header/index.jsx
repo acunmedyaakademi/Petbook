@@ -8,23 +8,28 @@ import Appearance from './components/appearance'
 import {BiBone} from 'react-icons/bi'
 
 const Header = () => {
-  const [colorChange, setColorchange] = useState(false)
+  const [colorChange, setColorChange] = useState(false)
   const [show, setShow] = useState(false)
   const [menuScreen, setMenuScreen] = useState(false)
 
   const handleShow = () => setShow(!show)
 
-  const changeNavbarColor = () => setColorchange(window.scrollY >= 550)
-
-  const handleMenuScreen = () => setMenuScreen(window.innerWidth > 640)
+  const changeNavbarColor = () => setColorChange(window.scrollY >= 550)
 
   useEffect(() => {
+    const handleMenuScreen = () => setMenuScreen(window.innerWidth > 640)
     handleMenuScreen()
-    window.addEventListener('resize', handleMenuScreen)
+
+    const handleResize = () => {
+      handleMenuScreen()
+      changeNavbarColor()
+    }
+
+    window.addEventListener('resize', handleResize)
     window.addEventListener('scroll', changeNavbarColor)
 
     return () => {
-      window.removeEventListener('resize', handleMenuScreen)
+      window.removeEventListener('resize', handleResize)
       window.removeEventListener('scroll', changeNavbarColor)
     }
   }, [])

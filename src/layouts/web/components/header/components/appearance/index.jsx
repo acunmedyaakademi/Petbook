@@ -2,13 +2,7 @@ import {Menu} from '@headlessui/react'
 import useColorScheme from '@/hooks/use-color-scheme'
 import {setTheme} from '@/stores/app/actions'
 import {useTheme} from '@/stores/app/hooks'
-import {
-  appearance,
-  getAppearanceName,
-  getAppearanceIcon,
-  languages,
-  getLanguageName,
-} from '@/utils/consts/appearance'
+import {appearance, getAppearanceIcon, languages, getLanguageName} from '@/utils/consts/appearance'
 import classNames from 'classnames'
 import {useTranslation} from 'react-i18next'
 import {CircleFlag} from 'react-circle-flags'
@@ -18,6 +12,14 @@ const Appearance = () => {
   const theme = useTheme()
   const {colorScheme} = useColorScheme()
   const {t, i18n} = useTranslation()
+
+  const handleThemeChange = (themeKey) => {
+    setTheme(themeKey)
+  }
+
+  const handleLanguageChange = (languageKey) => {
+    i18n.changeLanguage(languageKey)
+  }
 
   return (
     <div className='relative flex items-center justify-items-center gap-5'>
@@ -33,9 +35,7 @@ const Appearance = () => {
             <Menu.Item key={index}>
               {({active}) => (
                 <button
-                  onClick={() => {
-                    setTheme(key)
-                  }}
+                  onClick={() => handleThemeChange(key)}
                   className={classNames(
                     'flex items-center justify-start w-full px-4 py-2 gap-5 font-medium text-sm transition-colors duration-300',
                     {
@@ -67,9 +67,7 @@ const Appearance = () => {
             <Menu.Item key={index}>
               {({active}) => (
                 <button
-                  onClick={() => {
-                    i18n.changeLanguage(key)
-                  }}
+                  onClick={() => handleLanguageChange(key)}
                   className={classNames(
                     'flex items-center justify-start w-full px-4 py-2 gap-5 font-medium text-sm transition-colors duration-300',
                     {
