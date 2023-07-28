@@ -4,10 +4,15 @@ import Header from './components/header'
 import {useTheme} from '@/stores/app/hooks'
 import useColorScheme from '@/hooks/use-color-scheme'
 import {useEffect} from 'react'
+import {useModals} from '@/stores/modal/hooks'
+import Modals from '@/components/modals'
 
 const WebLayout = () => {
+  const modals = useModals()
   const theme = useTheme()
   const {colorScheme} = useColorScheme()
+
+  console.log(modals)
 
   useEffect(() => {
     if (theme === 'default') {
@@ -19,6 +24,7 @@ const WebLayout = () => {
 
   return (
     <>
+      {modals.length > 0 && <Modals />}
       <Header />
       <Outlet />
     </>

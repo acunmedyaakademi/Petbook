@@ -14,7 +14,7 @@ const Header = () => {
 
   const handleShow = () => setShow(!show)
 
-  const changeNavbarColor = () => setColorChange(window.scrollY >= 550)
+  const changeNavbarColor = () => setColorChange(window.scrollY >= 200)
 
   useEffect(() => {
     const handleMenuScreen = () => setMenuScreen(window.innerWidth > 640)

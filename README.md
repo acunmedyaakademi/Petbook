@@ -18,3 +18,5 @@
 - [circle-flags](https://github.com/HatScripts/circle-flags/tree/gh-pages/flags)
 - [React i18next Dil Sistemi](https://react.i18next.com/)
 - [Headlessui](https://headlessui.com/)
+- [yup](https://www.npmjs.com/package/yup)
+- [formik](https://formik.org/)
